@@ -67,9 +67,11 @@ const EmployeeSummary = () => {
       <div className="app-loader">
         {companyInfoState.loading && <ProgressSpinner />}
 
-        {!companyInfoState.loading && companyInfoState.errorMessage && (
-          <><div className="errmsg">Failed to load. Please ensure server is up.</div></>
-        )}
+        
+
+        {/* {!companyInfoState.loading && companyInfoState.errorMessage != null && (
+         <div className="errmsg">Failed to load. Please ensure server is up.</div>
+        )} */}
       </div>
       <div>
         <div>
@@ -103,7 +105,7 @@ const EmployeeSummary = () => {
               header={header}
               selection={companyInfoState.selectedEmp}
               onRowClick={(e) => {
-                // console.log("event", e);
+                console.log("event", e);
                 dispatch(setSelectedEmployeeStateAction(e.data));
                 dispatch(setShowEmpDetailsstateAction(true));
               }}
@@ -118,7 +120,7 @@ const EmployeeSummary = () => {
               ></Column>
               <Column field="contactNo" header="Contact No" sortable></Column>
               <Column field="address" header="Address" sortable></Column>
-              {/* <Column field="avatar" header="Address"></Column> */}
+             
             </DataTable>
           </div>
         )}
@@ -127,6 +129,7 @@ const EmployeeSummary = () => {
       <div className="card flex justify-content-center">
         <Dialog
           visible={companyInfoState.showEmpDetails}
+          // visible={true}
           modal={true}
           closable={true}
           dismissableMask={true}
@@ -135,6 +138,7 @@ const EmployeeSummary = () => {
           }}
           style={{ width: "50vw" }}
         >
+          test
           <EmployeeDetails></EmployeeDetails>
         </Dialog>
       </div>
