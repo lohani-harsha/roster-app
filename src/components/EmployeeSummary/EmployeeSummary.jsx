@@ -64,15 +64,13 @@ const EmployeeSummary = () => {
   const header = renderHeader();
   return (
     <>
-      <div className="app-loader">
+      {/* <div className="app-loader">
         {companyInfoState.loading && <ProgressSpinner />}
 
-        
-
-        {/* {!companyInfoState.loading && companyInfoState.errorMessage != null && (
-         <div className="errmsg">Failed to load. Please ensure server is up.</div>
-        )} */}
-      </div>
+        {!companyInfoState.loading && companyInfoState.errorMessage && (
+          <><div className="errmsg">Failed to load. Please ensure server is up.</div></>
+        )}
+      </div> */}
       <div>
         <div>
           {companyInfoState.companyInfo && (
