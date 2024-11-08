@@ -64,13 +64,13 @@ const EmployeeSummary = () => {
   const header = renderHeader();
   return (
     <>
-      {/* <div className="app-loader">
+      <div >
         {companyInfoState.loading && <ProgressSpinner />}
 
         {!companyInfoState.loading && companyInfoState.errorMessage && (
           <><div className="errmsg">Failed to load. Please ensure server is up.</div></>
         )}
-      </div> */}
+      </div>
       <div>
         <div>
           {companyInfoState.companyInfo && (
@@ -136,7 +136,6 @@ const EmployeeSummary = () => {
           }}
           style={{ width: "50vw" }}
         >
-          test
           <EmployeeDetails></EmployeeDetails>
         </Dialog>
       </div>
