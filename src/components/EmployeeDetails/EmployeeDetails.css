@@ -1,0 +1,25 @@
+.flex {
+  display: flex;
+}
+
+.employee-details-header {
+  display: flex;
+}
+
+.left-part {
+  width: 10em;
+  padding: 1em;
+}
+
+.right-part {
+  padding: 1em;
+}
+
+.right-part.employee-name {
+  display: flex;
+  align-items: flex-end;
+}
+
+.rowClassName {
+  background-color: aquamarine;
+}
