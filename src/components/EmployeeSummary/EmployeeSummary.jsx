@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
-import {
+import {  
   setSelectedEmployeeStateAction,
   setShowEmpDetailsstateAction,
-  fetchCompanyInfoAction,
-  toggleLoadingStateAction
-} from "../../store/reducers";
+  fetchCompanyInfoRequest,
+  toggleLoadingStateAction,} from './../../redux/companyInfoSlice'
 import { ProgressSpinner } from "primereact/progressspinner";
-
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
@@ -39,11 +37,12 @@ const EmployeeSummary = () => {
   };
 
   useEffect(() => {
-    console.log("calling fetchCompanyInfoAction ");
+    console.log("calling fetchCompanyInfoRequest ");
     dispatch(toggleLoadingStateAction())
     setTimeout(() => {
-      dispatch(fetchCompanyInfoAction());
-    }, 1000);
+      dispatch(fetchCompanyInfoRequest());
+    });
+    console.log("companyInfoState",companyInfoState)
   }, []);
 
   const renderHeader = () => {
@@ -64,16 +63,16 @@ const EmployeeSummary = () => {
   const header = renderHeader();
   return (
     <>
-      <div >
-        {companyInfoState.loading && <ProgressSpinner />}
+      <div>
+        {companyInfoState?.loading && <ProgressSpinner />}
 
-        {!companyInfoState.loading && companyInfoState.errorMessage && (
+        {!companyInfoState?.loading && companyInfoState?.errorMessage && (
           <><div className="errmsg">Failed to load. Please ensure server is up.</div></>
         )}
       </div>
       <div>
         <div>
-          {companyInfoState.companyInfo && (
+          {companyInfoState?.companyInfo && (
             <>
               <div className="company-name">
                 {companyInfoState.companyInfo.companyName}
@@ -90,7 +89,7 @@ const EmployeeSummary = () => {
           )}
         </div>
 
-        {companyInfoState.companyInfo && (
+        {companyInfoState?.companyInfo && (
           <div className="card">
             <DataTable
               value={companyInfoState.employees}
@@ -126,8 +125,7 @@ const EmployeeSummary = () => {
 
       <div className="card flex justify-content-center">
         <Dialog
-          visible={companyInfoState.showEmpDetails}
-          // visible={true}
+          visible={companyInfoState?.showEmpDetails}
           modal={true}
           closable={true}
           dismissableMask={true}
