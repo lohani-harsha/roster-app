@@ -1,0 +1,18 @@
+.company-name {
+    padding: 1em 1em .5em 1em;
+    font-size: 2em;
+}
+
+.company-moto {
+    padding: 0 2em;
+}
+
+.company-sub-header-item {
+    padding: 0 2em; 
+}
+
+.company-sub-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
