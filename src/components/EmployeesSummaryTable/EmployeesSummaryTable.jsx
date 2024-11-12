@@ -53,6 +53,7 @@ const EmployeeSummaryTable = () => {
               value={companyInfoState.employees}
               paginator
               rows={5}
+              removableSort
               paginatorTemplate=" CurrentPageReport RowsPerPageDropdown FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink "
               currentPageReportTemplate="{first} to {last} of {totalRecords}"
               dataKey="id"
