@@ -4,3 +4,4 @@ Steps to start application
 3. npm install
 4. npm run startServer (To start server)
 5. npm start (to start frontend application)
+6. npm run test a (to run test cases)
