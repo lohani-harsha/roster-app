@@ -4,13 +4,12 @@ import { fetchCompanyInfoRequest,fetchCompanyInfoSuccess,fetchCompanyInfoFailure
 // Simulate an API call
 const fetchCompanyInfoFromAPI = async () => {
   const response = await fetch('http://localhost:3001/companies');
-  if (!response.ok) throw new Error('Failed to fetch user');
+  if (!response.ok) throw new Error('Failed to fetch company Info');
   return response.json();
 };
 
-// Worker saga: makes the API call when the fetchUserRequest action is dispatched
+// Worker saga: makes the API call when the etchCompanyInfoRequest action is dispatched
 function* fetchCompanyInfoSaga() {
-    console.log("inside fetchCompanyInfoSaga")
   try {
     const companyInfo  = yield call(fetchCompanyInfoFromAPI); // Call the API
     yield put(fetchCompanyInfoSuccess(companyInfo )); // Dispatch success action
@@ -19,9 +18,7 @@ function* fetchCompanyInfoSaga() {
   }
 }
 
-// Watcher saga: watches for actions dispatched to the store and starts a new fetchUserSaga
 function* watchFetchCompanyInfoRequest() {
-    console.log("fetchCompanyInfoRequest.type", fetchCompanyInfoRequest.type)
   yield takeEvery( fetchCompanyInfoRequest.type, fetchCompanyInfoSaga);
 }
 

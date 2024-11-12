@@ -1,6 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
-
 const companyInfoSlice = createSlice({
   name: "companyInfoStateSliceReducer",
   initialState: {
@@ -10,7 +8,7 @@ const companyInfoSlice = createSlice({
   },
   reducers: {
     // ... other reducers ...
-    fetchCompanyInfoRequest: (state) => {
+        fetchCompanyInfoRequest: (state) => {
         state.loading = true;
         state.error = null;
       },
@@ -21,11 +19,10 @@ const companyInfoSlice = createSlice({
         state.errorMessage = null
       },
       fetchCompanyInfoFailure: (state, action) => {
-        state.error = action.payload;
+        state.errorMessage = action.payload;
         state.loading = false;
       },
     toggleLoadingStateAction: (state, action) => {
-      console.log("toggling loading state");
       state.loading = !state.loading;
     },
     setSelectedEmployeeStateAction: (state, action) => {

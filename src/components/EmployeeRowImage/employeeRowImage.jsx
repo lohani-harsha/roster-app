@@ -1,5 +1,4 @@
 const EmployeeRowImageTemplate = (rowData) => {
-  // console.log("rowData", rowData);
   return (
     <div className="flex align-items-center gap-2">
       <img
