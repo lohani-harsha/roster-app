@@ -55,7 +55,7 @@ const EmployeeSummaryTable = () => {
               rows={5}
               removableSort
               paginatorTemplate=" CurrentPageReport RowsPerPageDropdown FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink "
-              currentPageReportTemplate="{first} to {last} of {totalRecords}"
+              currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
               dataKey="id"
               filters={filters}
               header={header}
